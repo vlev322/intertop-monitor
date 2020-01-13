@@ -1,0 +1,77 @@
+base-primary = #12a19a
+base-text = #3c3c3c
+secondary = #f39200
+secondary-text = #a6a6a6
+bg-color = #f1f1f1
+base-border-color = #D0D0D1
+
+body
+	background-color bg-color
+	color base-text
+	font 16px / 24px "Ubuntu-regular", "Arial", Sans-serif
+
+input
+	// color: $base-primary
+	// font: 24px/32px 'Ubuntu-regular', 'Arial', Sans-serif
+
+.button
+	cursor pointer
+	font 16px / 40px "Ubuntu-Regular"
+	text-align center
+	// padding: 0 45px
+	width 160px
+	box-sizing border-box
+
+	&.white
+		background-color #fff
+		border-radius 7px
+
+	&.mint
+		font-size 16px
+		color white
+		background-color base-primary
+		border-radius 20px
+
+	&.dark-grey
+		font-size 16px
+		color white
+		background-color base-text
+		border-radius 20px
+		width 128px
+		height 40px
+
+.pointer
+	cursor pointer
+
+	.link:after
+		display block
+		content " "
+		width 20%
+		height 1px
+		background none
+
+	&:hover
+		&:after
+			// background-color: $base-primary
+
+.username
+	width 150px
+	height 10px
+
+	.grad
+		margin-top 2px
+
+	&:hover
+		> .grad
+			background linear-gradient(to right, #12A19A 40%, transparent)
+			height 1px
+			width 150px
+
+.avatar
+	float left
+	height 80px
+	width 80px
+	border-radius 50px
+	border 2px solid base-primary
+	padding 1px
+	margin-left 30px
