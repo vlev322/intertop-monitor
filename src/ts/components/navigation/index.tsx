@@ -1,9 +1,11 @@
 import React from "react";
 
-import { NavItem } from "./navigation-item";
+import { NavMenu } from "./navigation-menu";
+import { NavigationCore } from "./routes";
 
-const NAVITEMS: string[] = ["day", "calendar", "kiosks", "problems", "add"];
-
-export const Navigation = () => {
-	return <div className="navigation">{NAVITEMS.map((item: any) => <div key={item}>{NavItem(item)}</div>)}</div>;
-};
+export const Navigation = () => (
+	<>
+	<NavMenu/>
+	<NavigationCore/>
+	</>
+);
