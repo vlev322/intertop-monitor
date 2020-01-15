@@ -1,20 +1,25 @@
-.kiosks
-	&-list-items, &-list-header
-		display flex
-		align-items center
-		justify-content space-between
-		border-bottom 1px solid #DDDDDD
-		padding 3px 0
-		cursor pointer
-		div
-			width 200px
+.list-items, .list-header
+	display flex
+	align-items center
+	justify-content space-between
+	border-bottom 1px solid #DDDDDD
+	padding 3px 0
 
-			&:last-child
-				width 300px
+	div
+		width 150px
+		&:first-child
+			width 75px
+		&:last-child
+			width 300px
 
-	&-list-items
-		&:hover
-			background #DDDDDD
-	&-list-header
-		font-weight bold
-		background-color #C1C0C0
+.list-items
+	cursor pointer
+
+	&:hover
+		background #DDDDDD
+
+.list-header
+	padding 0 2px
+	font-weight bold
+	background-color #C1C0C0
+	border-radius 3px
