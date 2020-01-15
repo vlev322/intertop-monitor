@@ -13,7 +13,7 @@ export interface IProps {
 
 export const KioskListItem = ({ id, name, ip, city, info = "-", status = true }: IProps): JSX.Element => {
 	const _onClick = () => {
-		navigate(`/kiosks/id:${id}`);
+		navigate(`/kiosks/${name}`);
 	};
 	return (
 		<div onClick={_onClick} className="kiosks-list-items">

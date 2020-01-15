@@ -22,7 +22,7 @@ export const routes = {
 	"/problems": () => <Problems />,
 	// '/task/:id': () => <ProblemDetails id={id}/>,
 	"/kiosks": () => <Kiosks />,
-	"/kiosks/:id": ({ id }: RouteObject) => <KioskDetails id={id} />,
+	"/kiosks/:name": ({ name }: RouteObject) => <KioskDetails _name={name.toString().toUpperCase()} />,
 	"/calendar": () => <Calendar />,
 	"/add": () => <Add />
 };

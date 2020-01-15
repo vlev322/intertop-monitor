@@ -1,7 +1,8 @@
 import React from "react";
+import { A } from "hookrouter";
 
 export const NotFoundPage = () => (
 	<h1>
-		Page not found, please retern on <a href="/">main</a>
+		Page not found, please retern on <A href="/">main</A>
 	</h1>
 );
