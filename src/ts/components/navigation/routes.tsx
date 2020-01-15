@@ -1,7 +1,6 @@
 import React from "react";
 import { useRoutes } from "hookrouter";
 
-import { NavMenu } from "./navigation-menu";
 import { NotFoundPage } from "../not-found-page";
 
 import { Day } from "../temp/day";
@@ -10,6 +9,12 @@ import { Calendar } from "../temp/calendar";
 import { Add } from "../temp/add";
 import { Kiosks } from "../kiosks";
 import { KioskDetails } from "../kiosks/kiosk-details";
+interface QueryParams {
+	[key: string]: any;
+}
+interface RouteObject {
+	[key: string]: (params: QueryParams) => any;
+}
 
 export const routes = {
 	"/": () => <Day />,
@@ -17,7 +22,7 @@ export const routes = {
 	"/problems": () => <Problems />,
 	// '/task/:id': () => <ProblemDetails id={id}/>,
 	"/kiosks": () => <Kiosks />,
-	'/kiosks/:id': ({id}) => <KioskDetails id={id}/>,
+	"/kiosks/:id": ({ id }: RouteObject) => <KioskDetails id={id} />,
 	"/calendar": () => <Calendar />,
 	"/add": () => <Add />
 };

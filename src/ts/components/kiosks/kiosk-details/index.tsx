@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 interface IProps {
-	id: number;
+	id: any;
 }
 interface IState {}
 
