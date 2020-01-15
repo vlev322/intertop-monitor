@@ -4,11 +4,12 @@ import { useRoutes } from "hookrouter";
 import { NotFoundPage } from "../not-found-page";
 
 import { Day } from "../temp/day";
-import { Problems } from "../temp/problems";
 import { Calendar } from "../temp/calendar";
 import { Add } from "../temp/add";
 import { Kiosks } from "../kiosks";
 import { KioskDetails } from "../kiosks/kiosk-details";
+import { Tasks } from "../tasks";
+import { TaskDetails } from "../tasks/tasks-details";
 interface QueryParams {
 	[key: string]: any;
 }
@@ -19,8 +20,8 @@ interface RouteObject {
 export const routes = {
 	"/": () => <Day />,
 	"/day": () => <Day />,
-	"/problems": () => <Problems />,
-	// '/task/:id': () => <ProblemDetails id={id}/>,
+	"/tasks": () => <Tasks />,
+	'/tasks/:id': ({id}: RouteObject) => <TaskDetails _id={id}/>,
 	"/kiosks": () => <Kiosks />,
 	"/kiosks/:name": ({ name }: RouteObject) => <KioskDetails _name={name.toString().toUpperCase()} />,
 	"/calendar": () => <Calendar />,

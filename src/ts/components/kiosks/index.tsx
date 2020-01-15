@@ -1,10 +1,12 @@
 import React from "react";
+
 import { KiosksTable } from "./kiosks-table";
-import { KiosksTableHeader } from "./kiosk-list-header/index";
+import { TableHeader } from "../list-header";
+import { KIOSKS_HEADER } from "../list-header/caseHeader";
 
 export const Kiosks = () => (
 	<div className="kiosks">
-		<KiosksTableHeader />
+		<TableHeader VARIANT_HEADER={KIOSKS_HEADER} />
 		<KiosksTable />
 	</div>
 );

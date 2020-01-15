@@ -2,19 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useTitle } from "hookrouter";
 
 import { KioskDetailsService } from "../../../services/getAsyncKioskDetails";
+import { IKiosk } from "../_interface";
 
 interface IProps {
 	_name: any;
 }
-interface IState {
-	id: number;
-	name: string;
-	ip: string;
-	city: string;
-}
-
 export const KioskDetails = ({ _name }: IProps) => {
-	const initialState: IState = {
+	const initialState: IKiosk = {
 		id: 0,
 		name: "",
 		ip: "",
@@ -30,15 +24,16 @@ export const KioskDetails = ({ _name }: IProps) => {
 			setInfo({ ...result });
 		});
 	}, []);
+
 	return (
-		<>
-			<div>Kiosk - {name}</div>
-			<div>
-				<h2>{id}</h2>
-				<h2>{name}</h2>
-				<h2>{city}</h2>
-				<h2>{ip}</h2>
+		<div className="kioskDetail">
+			<div className="kioskDetail-preview">
+				<div>{id}</div>
+				<div>{name}</div>
+				<div>{city}</div>
+				<div>{ip}</div>
 			</div>
-		</>
+
+		</div>
 	);
 };

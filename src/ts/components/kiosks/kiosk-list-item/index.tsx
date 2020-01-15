@@ -1,12 +1,9 @@
 import React from "react";
 
 import { navigate } from "hookrouter";
+import { IKiosk } from "../_interface";
 
-export interface IProps {
-	id: number;
-	name: string;
-	ip: string;
-	city: string;
+export interface IProps extends IKiosk {
 	info?: string;
 	status?: boolean;
 }
@@ -16,7 +13,7 @@ export const KioskListItem = ({ id, name, ip, city, info = "-", status = true }:
 		navigate(`/kiosks/${name}`);
 	};
 	return (
-		<div onClick={_onClick} className="kiosks-list-items">
+		<div onClick={_onClick} className="list-items">
 			<div>{id}</div>
 			<div>{name}</div>
 			<div>{city}</div>
