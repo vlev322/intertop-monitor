@@ -1,6 +1,6 @@
 export interface IKiosk {
 	id: number;
-	name: string;
+	mticode: string;
 	ip: string;
 	city: string;
 }
@@ -11,5 +11,5 @@ export interface ITask {
 	info: string;
 	date: number;
 	status: string;
-	name: string;
+	mticode: string;
 }

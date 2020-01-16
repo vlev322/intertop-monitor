@@ -23,7 +23,7 @@ export const routes = {
 	"/tasks": () => <Tasks />,
 	'/tasks/:id': ({id}: RouteObject) => <TaskDetails _id={id}/>,
 	"/kiosks": () => <Kiosks />,
-	"/kiosks/:name": ({ name }: RouteObject) => <KioskDetails _name={name.toString().toUpperCase()} />,
+	"/kiosks/:mticode": ({ mticode }: RouteObject) => <KioskDetails _mticode={mticode.toString().toUpperCase()} />,
 	"/calendar": () => <Calendar />,
 	"/add": () => <Add />
 };

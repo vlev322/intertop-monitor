@@ -5,5 +5,5 @@ export interface ITask {
 	info: string;
 	date: number;
 	status: string;
-	name: string;
+	mticode: string;
 }

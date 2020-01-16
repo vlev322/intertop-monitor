@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTitle } from "hookrouter";
 
-
 import { TaskListItem } from "../task-list-item";
 import { ITask } from "../_interface";
 import { TasksService } from "../../../services/getAsyncTasks";
@@ -9,7 +8,7 @@ import { TasksService } from "../../../services/getAsyncTasks";
 export const TasksTable = () => {
 	useTitle("All tasks");
 	const _tasksService = new TasksService();
-	const initialState: ITask[] = [{ id: 0, name: "", city: "", img: "", info: "", date: 0, status: "" }];
+	const initialState: ITask[] = [{ id: 0, mticode: "", city: "", img: "", info: "", date: 0, status: "" }];
 	const [tasks, setTasks] = useState(initialState);
 
 	useEffect(() => {

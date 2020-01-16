@@ -3,6 +3,11 @@ import { useTitle } from "hookrouter";
 
 import { ITask } from "../_interface";
 import { TaskDetailsService } from "../../../services/getAsyncTaskDetails";
+import { decodeMticode } from "../../../logic/decodeController";
+import { IDecodeMticode } from "../../_interface";
+
+import { TaskDetailsPreview } from "./task-details-preview";
+import { TaskDetailsContent } from "./task-details-content";
 
 interface IProps {
 	_id: any;
@@ -15,31 +20,27 @@ export const TaskDetails = ({ _id }: IProps) => {
 		info: "",
 		date: 0,
 		status: "",
-		name: "string"
+		mticode: ""
 	};
-	useTitle(`###${_id}`);
+	useTitle(`Task - #${_id}`);
+
 	const _taskDetailsService = new TaskDetailsService();
 	const [infoTask, setInfo] = useState(initialState);
-	const { id, city, img, info, date, status, name } = infoTask;
+	const { mticode } = infoTask;
 
 	useEffect(() => {
 		_taskDetailsService.getTaskDetailsAsync(_id).then(result => {
 			setInfo({ ...result });
-			console.log(result);
 		});
 	}, []);
 
+	const decodeInfo: IDecodeMticode = decodeMticode(mticode);
+	const props = { ...decodeInfo, ...infoTask };
+
 	return (
-		<div className="kioskDetail">
-			<div className="kioskDetail-preview">
-				<div>{id}</div>
-				<div>{city}</div>
-				<div>{img}</div>
-				<div>{info}</div>
-				<div>{date}</div>
-				<div>{status}</div>
-				<div>{name}</div>
-			</div>
+		<div className="entityDetails">
+			<TaskDetailsPreview {...props} />
+			<TaskDetailsContent {...props}/>
 		</div>
 	);
 };

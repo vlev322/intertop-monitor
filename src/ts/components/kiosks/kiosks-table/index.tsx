@@ -9,7 +9,7 @@ import { IKiosk } from "../_interface";
 export const KiosksTable = () => {
 	useTitle("All kiosks");
 	const _kiosksService = new KiosksService();
-	const initialState: IKiosk[] = [{ id: 0, name: "", ip: "", city: "" }];
+	const initialState: IKiosk[] = [{ id: 0, mticode: "", ip: "", city: "" }];
 	const [kiosks, setKiosks] = useState(initialState);
 
 	useEffect(() => {

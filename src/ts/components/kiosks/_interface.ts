@@ -1,6 +1,6 @@
 export interface IKiosk {
 	id: number;
-	name: string;
+	mticode: string;
 	ip: string;
 	city: string;
 }
