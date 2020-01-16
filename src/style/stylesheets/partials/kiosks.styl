@@ -7,8 +7,10 @@
 
 	div
 		width 150px
+
 		&:first-child
 			width 75px
+
 		&:last-child
 			width 300px
 
@@ -23,3 +25,56 @@
 	font-weight bold
 	background-color #C1C0C0
 	border-radius 3px
+	margin-bottom 5px
+
+/* Styling kiosk preview */
+.entityDetails
+	position relative
+	padding 10px 0
+
+	&-preview
+		display flex
+		align-items center
+		margin-bottom 25px
+		justify-content space-between
+		font-size 20px
+		border-bottom 1px solid #bbb
+
+		div
+			padding 5px 10px
+			position relative
+			width 22%
+			text-align center
+
+			&:before
+				content "|"
+				position absolute
+				left 0
+
+		div:first-child
+			flex-basis 5%
+
+			&:before
+				content ""
+
+	&-content
+		> div:first-child
+			font-size 35px
+			text-align center
+
+/* Styling task content */
+.section
+	width 75%
+	margin 10px auto
+	padding 10px
+	border-bottom 1px solid #ddd
+	&-control
+		display flex
+		justify-content space-between
+	&-status
+		background-color lighten(#F14C4C, 70%)
+		border-top-right-radius: 10px
+		border-top-left-radius: 10px
+	&-title
+		margin 15px 0
+
