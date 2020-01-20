@@ -4,7 +4,7 @@ import { useRoutes } from "hookrouter";
 import { NotFoundPage } from "../not-found-page";
 
 import { Day } from "../temp/day";
-import { Calendar } from "../temp/calendar";
+import { Calendar } from "../calendar";
 import { Add } from "../temp/add";
 import { Kiosks } from "../kiosks";
 import { KioskDetails } from "../kiosks/kiosk-details";
