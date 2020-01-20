@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-export const TaskDetailsContent = ({ id, info, status, img }) => {
+import { ITicket as props } from "../../_types";
+
+export const TicketDetailsContent = ({ id, info, status, img, date, mticode }: props) => {
 	return (
 		<div className="entityDetails-content">
 			<div>#{id}</div>

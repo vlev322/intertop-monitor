@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from "react";
 
-import { ITask } from "../../../tasks/_interface";
-import { TaskListItem } from "../../../tasks/task-list-item";
-import { TasksService } from "../../../../services/getAsyncTasks";
+import { TicketListItem } from "../../../tickets/ticket-list-item";
+import { TicketsService } from "../../../../services/getAsyncTickets";
+import { ITicket, STATUS } from "../../../tickets/_types";
+import { decodeMticode } from "../../../../logic/decodeController";
+import { IDecodeMticode } from "../../../_interface";
 
-export const EntityDetailsTable = ({_mticode}) => {
-	const _tasksService = new TasksService();
-	const initialState: ITask[] = [{ id: 0, mticode: "", city: "", img: "", info: "", date: 0, status: "" }];
-	const [tasks, setTasks] = useState(initialState);
+export const EntityDetailsTable = ({ _mticode }) => {
+	const _ticketsService = new TicketsService();
+	const initialState: ITicket[] = [{ id: 0, mticode: "", img: "", info: "", date: 0, status: STATUS.INWORKING }];
+	const [tickets, setTasks] = useState(initialState);
 
 	useEffect(() => {
-		_tasksService.getTasksAsync().then(result => {
+		_ticketsService.getTicketsAsync().then(result => {
 			setTasks(result);
 		});
 	}, []);
-
+	const { city }: IDecodeMticode = decodeMticode(_mticode);
 	return (
 		<div>
-			{tasks.map((task: ITask) => (
-				<TaskListItem key={task.city} {...task} />
+			{tickets.map((ticket: ITicket) => (
+				<TicketListItem key={city} {...ticket} />
 			))}
 		</div>
 	);

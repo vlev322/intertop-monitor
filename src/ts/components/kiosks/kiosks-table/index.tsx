@@ -21,7 +21,7 @@ export const KiosksTable = () => {
 	return (
 		<div>
 			{kiosks.map((kiosk: IKiosk) => (
-				<KioskListItem key={kiosk.ip} {...kiosk} />
+				<KioskListItem key={kiosk.mticode + kiosk.id} {...kiosk} />
 			))}
 		</div>
 	);

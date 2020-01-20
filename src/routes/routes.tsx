@@ -1,15 +1,15 @@
 import React from "react";
 import { useRoutes } from "hookrouter";
 
-import { NotFoundPage } from "../not-found-page";
+import { NotFoundPage } from "../ts/components/not-found-page";
 
-import { Day } from "../temp/day";
-import { Calendar } from "../temp/calendar";
-import { Add } from "../temp/add";
-import { Kiosks } from "../kiosks";
-import { KioskDetails } from "../kiosks/kiosk-details";
-import { Tasks } from "../tasks";
-import { TaskDetails } from "../tasks/tasks-details";
+import { Day } from "../ts/components/temp/day";
+import { Calendar } from "../ts/components/temp/calendar";
+import { Add } from "../ts/components/temp/add";
+import { Kiosks } from "../ts/components/kiosks";
+import { KioskDetails } from "../ts/components/kiosks/kiosk-details";
+import { Tickets } from "../ts/components/tickets";
+import { TicketDetails } from "../ts/components/tickets/ticket-details";
 interface QueryParams {
 	[key: string]: any;
 }
@@ -20,8 +20,8 @@ interface RouteObject {
 export const routes = {
 	"/": () => <Day />,
 	"/day": () => <Day />,
-	"/tasks": () => <Tasks />,
-	'/tasks/:id': ({id}: RouteObject) => <TaskDetails _id={id}/>,
+	"/tickets": () => <Tickets />,
+	"/tickets/:id": ({ id }: RouteObject) => <TicketDetails _id={id} />,
 	"/kiosks": () => <Kiosks />,
 	"/kiosks/:mticode": ({ mticode }: RouteObject) => <KioskDetails _mticode={mticode.toString().toUpperCase()} />,
 	"/calendar": () => <Calendar />,

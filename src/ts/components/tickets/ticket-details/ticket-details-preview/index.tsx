@@ -1,6 +1,6 @@
 import React from "react";
 
-export const TaskDetailsPreview = ({ date, mticode, city, brand, shopNumber }): JSX.Element => {
+export const TicketDetailsPreview = ({ date, mticode, city, brand, shopNumber }): JSX.Element => {
 	return (
 		<div className="entityDetails-preview">
 			<div>{mticode}</div>

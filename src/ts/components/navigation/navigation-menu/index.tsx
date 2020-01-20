@@ -1,7 +1,7 @@
 import React from "react";
 import { NavItem } from "../navigation-item";
 
-const NAVITEMS: string[] = ["day", "calendar", "kiosks", "tasks", "add"];
+const NAVITEMS: string[] = ["day", "calendar", "kiosks", "tickets", "add"];
 
 export const NavMenu = () => (
 	<div className="navigation">

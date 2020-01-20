@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { Navigation } from "./navigation";
 import { Back } from "./button-back";
-import { NavigationCore } from "./navigation/routes";
+import { NavigationCore } from "../../routes/routes";
 
 export interface IPresenters {}
 
