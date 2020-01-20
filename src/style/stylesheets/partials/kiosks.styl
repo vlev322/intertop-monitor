@@ -68,13 +68,28 @@
 	margin 10px auto
 	padding 10px
 	border-bottom 1px solid #ddd
+	border-radius 8px
+	transition background-color 0.7s ease
+
 	&-control
 		display flex
 		justify-content space-between
+
 	&-status
 		background-color lighten(#F14C4C, 70%)
-		border-top-right-radius: 10px
-		border-top-left-radius: 10px
+		border-top-right-radius 10px
+		border-top-left-radius 10px
+
+		&-title
+			font-size 25px
+			margin-top 10px
+
 	&-title
 		margin 15px 0
 
+.section-status
+	&-solved
+		background-color #BBF4D8
+
+	&-inworking
+		background-color #FBC9C9
