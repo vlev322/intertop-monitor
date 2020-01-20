@@ -15,12 +15,12 @@ export const TicketListItem = ({ id, date, info, status, mticode }: ITicket): JS
 	};
 
 	return (
-		<div onClick={_onClick} className="list-items">
+		<div onClick={_onClick} className={`list-items section-status-${status}`}>
 			<div>#{id}</div>
 			<div>{mticode}</div>
 			<div>{city}</div>
 			<div>{date}</div>
-			<div>{status ? "is working" : "is not working"}</div>
+			<div>{status}</div>
 			<div>{info}</div>
 		</div>
 	);

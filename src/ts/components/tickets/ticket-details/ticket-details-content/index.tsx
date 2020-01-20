@@ -7,6 +7,9 @@ export const TicketDetailsContent = ({ id, info, status, img, date, mticode }: p
 	const [ticketStatus, setStatus] = useState(status);
 	const [isEditStatus, setEdit] = useState(false);
 
+	useEffect(() => {
+		setStatus(status);
+	}, [status]);
 	const handleEditable = () => {
 		setEdit(!isEditStatus);
 	};

@@ -1,10 +1,10 @@
-export interface IKiosk {
+export type IKiosk = {
 	id: number;
 	mticode: string;
-	ip: string;
+	host: string;
 	city: string;
-}
-export interface ITask {
+};
+export type ITask = {
 	id: number;
 	city: string;
 	img: string;
@@ -12,4 +12,4 @@ export interface ITask {
 	date: number;
 	status: string;
 	mticode: string;
-}
+};

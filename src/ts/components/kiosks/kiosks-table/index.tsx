@@ -9,7 +9,7 @@ import { IKiosk } from "../_interface";
 export const KiosksTable = () => {
 	useTitle("All kiosks");
 	const _kiosksService = new KiosksService();
-	const initialState: IKiosk[] = [{ id: 0, mticode: "", ip: "", city: "" }];
+	const initialState: IKiosk[] = [{ mticode: "", host: "", city: "" }];
 	const [kiosks, setKiosks] = useState(initialState);
 
 	useEffect(() => {
@@ -21,7 +21,7 @@ export const KiosksTable = () => {
 	return (
 		<div>
 			{kiosks.map((kiosk: IKiosk) => (
-				<KioskListItem key={kiosk.mticode + kiosk.id} {...kiosk} />
+				<KioskListItem key={kiosk.host} {...kiosk} />
 			))}
 		</div>
 	);

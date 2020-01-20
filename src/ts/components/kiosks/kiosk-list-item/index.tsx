@@ -9,7 +9,7 @@ export interface IProps extends IKiosk {
 	status?: boolean;
 }
 
-export const KioskListItem = ({ id, mticode, ip, status = true }: IProps): JSX.Element => {
+export const KioskListItem = ({ mticode, host, status = true }: IProps): JSX.Element => {
 	const _onClick = () => {
 		navigate(`/kiosks/${mticode}`);
 	};
@@ -17,12 +17,11 @@ export const KioskListItem = ({ id, mticode, ip, status = true }: IProps): JSX.E
 
 	return (
 		<div onClick={_onClick} className="list-items">
-			<div>{id}</div>
 			<div>{mticode}</div>
 			<div>{brand}</div>
 			<div>{shopNumber}</div>
 			<div>{city}</div>
-			<div>{ip}</div>
+			<div>{host}</div>
 			<div>{status ? "is working" : "is not working"}</div>
 		</div>
 	);

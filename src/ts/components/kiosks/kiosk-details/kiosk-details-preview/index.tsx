@@ -6,20 +6,19 @@ import { decodeMticode } from "../../../../logic/decodeController";
 import { IKiosk } from "../../_interface";
 import { IDecodeMticode } from "../../../_interface";
 
-interface IProps {
+type props = {
 	_mticode: any;
-}
+};
 
 interface IState extends IKiosk {
 	brand: string;
 	shopNumber: number;
 }
 
-export const KioskDetailsPreview = ({ _mticode }: IProps) => {
+export const KioskDetailsPreview = ({ _mticode }: props) => {
 	const initialState: IState = {
-		id: 0,
 		mticode: "",
-		ip: "",
+		host: "",
 		city: "",
 		brand: "",
 		shopNumber: 0
@@ -28,7 +27,7 @@ export const KioskDetailsPreview = ({ _mticode }: IProps) => {
 	const _kioskDetailsService = new KioskDetailsService();
 	const decodeInfo: IDecodeMticode = decodeMticode(_mticode);
 	const [info, setInfo] = useState(initialState);
-	const { id, mticode, ip } = info;
+	const { mticode, host } = info;
 	const { city, brand, shopNumber } = decodeInfo;
 
 	useEffect(() => {
@@ -39,12 +38,11 @@ export const KioskDetailsPreview = ({ _mticode }: IProps) => {
 
 	return (
 		<div className="entityDetails-preview">
-			<div>{id}</div>
 			<div>{mticode}</div>
 			<div>{city}</div>
 			<div>{brand}</div>
 			<div>{shopNumber}</div>
-			<div>{ip}</div>
+			<div>{host}</div>
 		</div>
 	);
 };

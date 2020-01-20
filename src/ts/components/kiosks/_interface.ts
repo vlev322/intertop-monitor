@@ -1,6 +1,5 @@
-export interface IKiosk {
-	id: number;
+export type IKiosk = {
 	mticode: string;
-	ip: string;
+	host: string;
 	city: string;
-}
+};
