@@ -5,8 +5,6 @@ import { TicketListItem } from "../ticket-list-item";
 
 import { TicketsService } from "../../../services/getAsyncTickets";
 import { ITicket, STATUS } from "../_types";
-import { IDecodeMticode } from "../../_interface";
-import { decodeMticode } from "../../../logic/decodeController";
 
 export const TicketsTable = () => {
 	useTitle("All tasks");
