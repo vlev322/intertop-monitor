@@ -6,10 +6,10 @@ import { NotFoundPage } from "../ts/components/not-found-page";
 import { Day } from "../ts/components/temp/day";
 import { Calendar } from "../ts/components/temp/calendar";
 import { Add } from "../ts/components/temp/add";
-import { Kiosks } from "../ts/components/kiosks";
 import { KioskDetails } from "../ts/components/kiosks/kiosk-details";
-import { Tickets } from "../ts/components/tickets";
 import { TicketDetails } from "../ts/components/tickets/ticket-details";
+import { Tickets } from "../ts/entities/tickets";
+import { Kiosks } from "../ts/entities/kiosks";
 interface QueryParams {
 	[key: string]: any;
 }

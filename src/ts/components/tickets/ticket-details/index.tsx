@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTitle } from "hookrouter";
 
-import { TicketDetailsService } from "../../../services/getAsyncTicketDetails";
 import { decodeMticode } from "../../../logic/decodeController";
 import { IDecodeMticode } from "../../_interface";
 
@@ -9,6 +8,7 @@ import { TicketDetailsPreview } from "./ticket-details-preview";
 import { TicketDetailsContent } from "./ticket-details-content";
 
 import { ITicket as props, STATUS } from "../_types";
+import { GetAsyncData, ENTITIESDATA } from "../../../services";
 
 interface IProps {
 	_id: any;
@@ -24,12 +24,14 @@ export const TicketDetails = ({ _id }: IProps) => {
 	};
 	useTitle(`Task - #${_id}`);
 
-	const _taskDetailsService = new TicketDetailsService();
+	const _taskDetailsService = new GetAsyncData<props>(ENTITIESDATA.TICKET);
 	const [infoTask, setInfo] = useState(initialState);
 	const { mticode } = infoTask;
 
 	useEffect(() => {
-		_taskDetailsService.getTicketDetailsAsync(_id).then(result => {
+		_taskDetailsService.getAsyncEntityData(_id).then(result => {
+			console.log(result);
+
 			setInfo({ ...result });
 		});
 	}, []);

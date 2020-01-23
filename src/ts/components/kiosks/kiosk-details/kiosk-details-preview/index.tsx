@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useTitle } from "hookrouter";
 
-import { KioskDetailsService } from "../../../../services/getAsyncKioskDetails";
 import { decodeMticode } from "../../../../logic/decodeController";
+
 import { IKiosk } from "../../_interface";
 import { IDecodeMticode } from "../../../_interface";
+import { GetAsyncData, ENTITIESDATA } from "../../../../services";
 
 type props = {
 	_mticode: any;
@@ -24,14 +25,14 @@ export const KioskDetailsPreview = ({ _mticode }: props) => {
 		shopNumber: 0
 	};
 	useTitle(`${_mticode}`);
-	const _kioskDetailsService = new KioskDetailsService();
+	const _kioskDetailsService = new GetAsyncData<IState>(ENTITIESDATA.TICKET);
 	const decodeInfo: IDecodeMticode = decodeMticode(_mticode);
 	const [info, setInfo] = useState(initialState);
 	const { mticode, host } = info;
 	const { city, brand, shopNumber } = decodeInfo;
 
 	useEffect(() => {
-		_kioskDetailsService.getKioskDetailsAsync(_mticode).then(result => {
+		_kioskDetailsService.getAsyncEntityData(_mticode).then(result => {
 			setInfo({ ...result, city, brand, shopNumber });
 		});
 	}, []);

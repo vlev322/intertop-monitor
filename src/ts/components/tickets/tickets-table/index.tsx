@@ -3,24 +3,24 @@ import { useTitle } from "hookrouter";
 
 import { TicketListItem } from "../ticket-list-item";
 
-import { TicketsService } from "../../../services/getAsyncTickets";
 import { ITicket, STATUS } from "../_types";
+import { GetAsyncData, ENTITIESDATA } from "../../../services";
 
 export const TicketsTable = () => {
-	useTitle("All tasks");
-	const _ticketsService = new TicketsService();
+	useTitle("All tickets");
+	const _ticketsService = new GetAsyncData<ITicket>(ENTITIESDATA.TICKETS);
 	const initialState: ITicket[] = [{ id: 0, mticode: "", img: "", info: "", date: 0, status: STATUS.INWORKING }];
-	const [tasks, setTasks] = useState(initialState);
+	const [tickets, setTickets] = useState(initialState);
 
 	useEffect(() => {
-		_ticketsService.getTicketsAsync().then(result => {
-			setTasks(result);
+		_ticketsService.getAsyncData().then(result => {
+			setTickets(result);
 		});
 	}, []);
 
 	return (
 		<div>
-			{tasks.map((ticket: ITicket) => (
+			{tickets.map((ticket: ITicket) => (
 				<TicketListItem key={ticket.date} {...ticket} />
 			))}
 		</div>
